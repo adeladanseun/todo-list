@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Todo List</title>
+    <link rel="stylesheet" href="todolist.css" />
+    <script src="todolist.js" defer></script>
+</head>
+
+<body>
+    <main class="mainbody">
+        <div class="listSection">
+            <div class="listSectionWrapper">
+                <form action="#" class="listForm">
+                    <p class="entrytext">Todo Entry</p>
+                    <ul class="listSectionList" id="listSectionList"></ul>
+                    <input type="text" placeholder="+ Enter Heading" class="listInput" id="listInput"/>
+                    <button type="submit" class="addList" id="addList">Add</button>
+                </form>
+            </div>
+        </div>
+        <div class="taskSection">
+            <header>
+                <p class="taskName" id="taskName">No Entry Selected</p>
+                <p class="remainingItems" id="remainingItems">0 items remaining</p>
+            </header>
+            <form class="taskForm">
+                <ul class="taskEntry" id="taskEntry"></ul>
+                <input type="text" class="taskInput" id="taskInput" placeholder=" Enter Task"/>
+                <button type="submit" class="addTask" id="addTask">Add Task</button>
+            </form>
+        </div>
+        <section class="endSection">
+            <p class="completed-task-clear" id="completed-task-clear">Clear Completed Tasks</p>
+            <p class="delete-list-entry" id="deleteSelection">Delete Selection</p>
+        </section>
+    </main>
+</body>
+
+</html>
