@@ -1,0 +1,242 @@
+* {
+    margin: 0;
+    padding:  0;
+    box-sizing: border-box;
+    cursor: default;
+    font-family: Arial, Helvetica, sans-serif;
+}
+ul {
+    list-style-type: none;
+}
+body {
+    display: grid;
+    place-content: center;
+    background-color: var(--BODY-BG-COLOR) !important;
+}
+.mainbody {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    background-color: var(--MAINBODY-BG-COLOR);
+    box-shadow: var(--MAINBODY-BOX-SHADOW);
+}
+.listSection {
+    padding: 0 10px;
+    max-width: 200px;
+    overflow: hidden;
+    transition: all 300ms ease-in;
+}
+.listSection:hover{
+    transform: scale(1.03);
+}
+.listSection .listForm {
+    display: grid;
+    row-gap: 20px;
+}
+.listSection .listForm .entrytext {
+    font-size: 13px;
+}
+.listSection .listSectionList {
+    margin-left: 5px;
+    list-style-type: none;
+    height: 100px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    font-family: Helvetica, Arial, sans-serif;
+}
+.listSection .listSectionList .selected {
+    color: var(--SELECTEDITEM-COLOR);
+    text-decoration: underline;
+}
+.listSection .listInput {
+    border: 0 solid;
+    border-bottom: 2px solid var(--INPUT-BORDER-COLOR);
+    background-color: rgba(255, 255, 255, 0);
+    color: var(--INPUT-COLOR);
+    padding: 5px 2px;
+    width: 70%;
+    transition: all 150ms;
+}
+.listSection .listInput:hover {
+    border-bottom: 2px solid var(--INPUT-BORDER-COLOR-HOVER);
+}
+.listSection .listInput:focus {
+    outline: none;
+}
+.listSection .listInput::placeholder{
+    color: var(--PLACEHOLDER-COLOR);
+}
+.listSection .addList {
+    padding: 6px 0;
+    background-color: var(--HEADING-BUTTON-BG-COLOR);
+    color: var(--HEADING-BUTTON-COLOR);
+    width: 25%;
+    justify-self: center;
+    border-radius: 6px;
+    border: 0;
+    box-shadow: 1px 0px 2px  black;
+    cursor: pointer;
+    transition: all 200ms;
+}
+.listSection .addList:hover {
+    background-color: var(--HEADING-BUTTON-BG-COLOR-HOVER);
+    color: var(--HEADING-BUTTON-COLOR-HOVER);
+    box-shadow: 1px 1px 6px 3px rgb(163, 100, 100);
+}
+
+/* Starting design for the task side */
+.taskSection {
+    max-width: 300px;
+    /* background-color: gold; */ /* To be deleted later */
+    display: grid;
+    width: 100%;
+    row-gap: 20px;
+    padding: 64px 20px;
+    align-self: flex-end;
+    border-left: 2px solid black;
+    transition: all 300ms ease-in;
+}
+.taskSection:hover {
+    transform: scale(0.99);
+}
+.taskSection header {
+    display: grid;
+    grid-template-columns: auto auto;
+    /* padding: 8px 3px; */
+    align-items: center;
+}
+.taskSection .remainingItems {
+    text-align: right;
+    font-size: 12px;
+}
+
+.taskSection .taskForm {
+    display: grid;
+    row-gap: 20px;
+}
+.taskSection .taskForm .taskEntry {
+    font-size: 17px;
+    height: 200px;
+    overflow-y:auto;
+    background-color: rgba(255, 255, 255, 0.404);
+    border-radius: 20px;
+}
+.taskSection .taskForm .taskEntry li.subListItem  {
+    padding: 4px;
+    text-transform: capitalize;
+    color: var(--TASK-ENTRY-COLOR);
+}
+.taskSection .taskForm .taskEntry li.strikeItem {
+    text-decoration: line-through;
+    color: var(--TASK-ENTRY-STRIKE-COLOR);
+}
+.taskSection .taskForm .taskInput {
+    padding: 6px 3px;
+    /* background-color: rgba(255, 255, 255, 0.384); */
+    background-color: rgba(255, 255, 255, 0);
+    border: 0;
+    border-bottom: 2px solid var(--INPUT-BORDER-COLOR);
+    font-size: 18px;
+    color: var(--INPUT-COLOR);
+    transition: background-color 250ms;
+}
+.taskSection .taskForm .taskInput:focus {
+    outline: none;
+}
+.taskSection .taskForm .taskInput:hover {
+    border-bottom: 2px solid var(--INPUT-BORDER-COLOR-HOVER);
+}
+
+.taskSection .taskForm .taskInput::placeholder {
+    color: var(--PLACEHOLDER-COLOR);
+    font-size: 13px;
+}
+.taskSection .taskForm button {
+    width: 50%;
+    background-color: var(--TASK-BUTTON-BG-COLOR);
+    color: var(--TASK-BUTTON-COLOR);
+    border: 1px solid;
+    padding: 5px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition:transform 150ms, background-color 150ms, color 150ms, box-shadow 150ms;
+}
+.taskSection .taskForm button:hover {
+    background-color: var(--TASK-BUTTON-BG-COLOR-HOVER);
+    color: black;
+    box-shadow: 0 0 4px 0 var(--TASK-BUTTON-BOX-SHADOW);
+    transform: scale(1.05);
+}
+/* Starting design for the end section */
+.endSection {
+    grid-column: 2 / -1;
+    align-self: flex-start;
+    display: grid;
+    grid-template-columns: auto auto;
+    font-size: 12px
+    /* background-color: red; */
+}
+.delete-list-entry {
+    color: var(--DELETE-COLOR);
+}
+.delete-list-entry:hover, .delete-list-entry:focus{
+    color: var(--DELETE-COLOR-HOVER);
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        --BODY-BG-COLOR: black;
+        --MAINBODY-BG-COLOR: ;
+        --MAINBODY-BOX-SHADOW: ;
+
+        --SELECTEDITEM-COLOR: ;
+        --PLACEHOLDER-COLOR: ;
+        --INPUT-COLOR: ;
+        --INPUT-BORDER-COLOR: ;
+        --INPUT-BORDER-COLOR-HOVER: ;
+        --HEADING-BUTTON-BG-COLOR: ;
+        --HEADING-BUTTON-COLOR: ;
+        --HEADING-BUTTON-BG-COLOR-HOVER: ;
+        --HEADING-BUTTON-COLOR-HOVER: ;
+
+        --TASK-ENTRY-COLOR: ;
+        --TASK-ENTRY-STRIKE-COLOR: ;
+        --TASK-BUTTON-BG-COLOR: ;
+        --TASK-BUTTON-COLOR: ;
+        --TASK-BUTTON-BG-COLOR-HOVER: ;
+        --TASK-BUTTON-COLOR-HOVER: ;
+        --TASK-BUTTON-BOX-SHADOW: ;
+
+        --DELETE-COLOR: ;
+        --DELETE-HOVER-COLOR: ;
+    }
+}
+@media (prefers-color-scheme: light) {
+    :root {
+        --BODY-BG-COLOR: rgb(134, 125, 125);
+        --MAINBODY-BG-COLOR: rgba(255, 218, 185, 0.589);
+        --MAINBODY-BOX-SHADOW: 0 0 6px 1px plum;
+
+        --SELECTEDITEM-COLOR: #333;
+        --PLACEHOLDER-COLOR: #333;
+        --INPUT-COLOR: #000;
+        --INPUT-BORDER-COLOR: #222;
+        --INPUT-BORDER-COLOR-HOVER: #A1A1A1;
+        --HEADING-BUTTON-BG-COLOR: rgb(255, 255, 255);
+        --HEADING-BUTTON-COLOR: #444;
+        --HEADING-BUTTON-BG-COLOR-HOVER: rgb(209, 185, 185);
+        --HEADING-BUTTON-COLOR-HOVER: #000;
+
+        --TASK-ENTRY-COLOR: #000;
+        --TASK-ENTRY-STRIKE-COLOR: #555;
+        --TASK-BUTTON-BG-COLOR: rgba(168, 93, 93, 0.342);
+        --TASK-BUTTON-COLOR: #333;
+        --TASK-BUTTON-BG-COLOR-HOVER: #d1d1d1;
+        --TASK-BUTTON-COLOR-HOVER: #000;
+        --TASK-BUTTON-BOX-SHADOW: #000;
+
+        --DELETE-COLOR: #000;
+        --DELETE-COLOR-HOVER: #F00;
+    }
+}
